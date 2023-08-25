@@ -1,0 +1,24 @@
+<h1>Books</h1>
+<% @book.each do |book| %>
+
+  <p>Title</p>
+  <span><%= link_to book.title, "/books/#{book.id}" %></span>
+  
+  <p>Body</p>
+  <span><%= book.body %>
+  
+<% end %>
+
+<div class="index-link">
+  <a href="/books/:id">show</a>
+  <a href="#">edit</a>
+  <a href="#">destoroy</a>
+</div>
+  
+<% end %>
+
+
+
+
+<h1>books#index</h1>
+<p>Find me in app/views/books/index.html.erb</p>
