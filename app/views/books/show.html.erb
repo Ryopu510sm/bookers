@@ -1,7 +1,28 @@
-<h2>Title</h2>
-<p><%= @book.title %></p>
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="books.scss" />
+    <title>Bookers</title>
+  </head>
 
-<h2>Body</h2>
-<p><%= @book.body %></p>
+  <body>
+    <div>
+      <%= flash[:notice] %>
+    </div>
+     
+<div class="Title-B">
+<h2>Title:<%= @books.title %></h2>
+</div>
 
-<a href="/books/index">Back</a>
+<div class="Title-B">
+<h2>Body:<%= @books.body %></h2>
+</div>
+
+
+
+      <a><%= link_to "Edit", edit_book_path(@books),class: "link-Edit" %></a>
+    　｜　
+      <a><%= link_to "Back",books_path,class: "link_Back" %></a>
+</body>
+</html>

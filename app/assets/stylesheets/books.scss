@@ -1,3 +1,120 @@
 // Place all the styles related to the books controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h1{
+    padding:30px;
+}
+
+.flex-box{
+  display:flex;
+}
+
+.Title-B{
+    padding:10px 30px;
+    line-height:30px;
+}
+
+.normal{
+    color:black;
+}
+
+.link{
+    flex:left;
+    float:left;
+}
+
+.link td{
+    color:gray;
+}
+
+table {
+    padding:30px;
+	border-collapse:separate;
+	border-spacing:0;
+	width:auto;
+
+}
+
+td{
+    padding:0 5px;
+    line-height:50px;
+}
+
+.link-start {
+    color:gray;
+}
+
+.link-Show a{
+    color:gray;
+}
+
+.link-Back a{
+    color:gray;
+}
+
+.link-Edit a{
+    color:gray;
+}
+
+.link-Destoroy a{
+    color:gray;
+}
+
+.link-Show:hover{
+    color:white;
+    background-color:black;
+}
+
+.link-Back:hover{
+    color:white;
+    background-color:black;
+}
+
+.link-Edit:hover{
+    color:white;
+    background-color:black;
+}
+
+.link-Destoroy:hover{
+    color:white;
+    background-color:black;
+}
+
+.link-start:hover{
+    color:white;
+    background-color:black;
+}
+
+.link a{
+    margin:10px;
+    flex-wrap:wrap;
+}
+
+.link td{
+    color:gray;
+}
+
+.explain{
+    padding:0 50px;
+    line-height:50px;
+}
+
+storong{
+    font-weight:bold;
+}
+
+.new-box a{
+    
+}
+
+text_area{
+    width:200px;
+    height:300px;
+}
+

@@ -1,17 +1,46 @@
-<h1>Editing Book</h1>
-<%= form_with model: @book do |f| %>
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="books.scss" />
+    <title>Bookers</title>
+  </head>     
+     <body>
+      
+     
+      <div>
+        <%= flash[:notice] %>
+      </div>
+<div class="flex-box">
+  <div class="explain new-box">      
+    <h1>Editing Book</h1>
+            <% if @books.errors.any? %><!--エラーが発生しているかどうかを判定-->
+          <a><%= @books.errors.count %>errors prohibited this book from being saved:</a>
+          <ul>
+            <% @books.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        <% end %>
+    
+    
+    
+    <%= form_with model: @books do |f| %>
+    
+      <h4>Title</h4>
+      <a><%= f.text_field :title %></a>
+      
+      <h4>Body</h4>
+      <a><%= f.text_area :body %></a>
+      
+      <%= f.submit 'Update Book' %>
+      
+    <% end %>
 
-  <h4>Title</h4>
-  <%= f.text_field :title %>
-  
-  <h4>Body</h4>
-  <%= f.text_area :body %>
-  
-  <%= f.submit 'Update Book' %>
-  
-<% end %>
-
-<a href="/books/#{book.id}">Show</a>
-<a href="/books">Back</a>
-
-
+        <a href="<%= book_path(@books) %>">Show</a>
+        ｜
+        <a href="/books">Back</a>
+    
+    
+</body>
+</html>

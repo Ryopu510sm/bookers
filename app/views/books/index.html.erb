@@ -1,24 +1,63 @@
-<h1>Books</h1>
-<% @book.each do |book| %>
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="books.scss" />
+    <title>Bookers</title>
+  </head>
 
-  <p>Title</p>
-  <span><%= link_to book.title, "/books/#{book.id}" %></span>
-  
-  <p>Body</p>
-  <span><%= book.body %>
-  
+  <body>
+    <h1>Books</h1>
+    
+      <table>
+        <tr>
+          <th>Title</th><th>Body</th>
+        </tr>
+        <tr>
+          <% @books.each do |book| %>
+            <td><span><%= book.title %></span></td>
+            <td><span><%= book.body %></span></td>
+            <div class="link">
+              <td class="link-Show"><%= link_to "Show", book_path(book.id) %></td>
+              <td class="link-Edit"><%= link_to "Edit", edit_book_path(book.id) %></td>
+              
+              <td class="link-Destoroy"><%= link_to "Destoroy", book_path(book.id),method: :delete, "data-confirm" => "Are you sure?" %></td>
+            </div>
+        </tr></br>
+          
+            <% end %>
+      </table>
+      <div>
+        <%= flash[:notice] %>
+      </div>
+      <h1>New book</h1>
+      
+        <% if @book.errors.any? %><!--エラーが発生しているかどうかを判定-->
+          <a><%= @book.errors.count %>errors prohibited this book from being saved:</a>
+          <ul>
+            <% @book.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        <% end %>
+      
+      
+      
+<%= form_with model: @book, url: books_path, method: :post do |f| %>
+<div class="flex-box">
+  <div class="explain new-box">
+    <h4>Title</h4> 
+    <a><%= f.text_field :title %></a>
+    
+    <h4>Body</h4>
+    <a><%= f.text_area :body %></a>
+    
+    <a><%= f.submit 'Create Book' %></a>
+    </div>
+    </div>
 <% end %>
-
-<div class="index-link">
-  <a href="/books/:id">show</a>
-  <a href="#">edit</a>
-  <a href="#">destoroy</a>
-</div>
-  
-<% end %>
-
-
-
-
-<h1>books#index</h1>
-<p>Find me in app/views/books/index.html.erb</p>
+      
+      
+      
+  </body>
+</html>
