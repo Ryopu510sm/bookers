@@ -12,14 +12,14 @@
     </div>
      
 <div class="Title-B">
-<h2>Title:<%= @books.title %></h2>
+  <h2>Title:<%= @books.title %></h2>
 </div>
 
 <div class="Title-B">
-<h2>Body:<%= @books.body %></h2>
-
-      <a><%= link_to "Edit", edit_book_path(@books),class: "link-Edit" %></a>
+  <h2>Body:<%= @books.body %></h2>
+</div>
+     <%= link_to "Edit", edit_book_path(@books.id),class: "link-Edit" %>
     　｜　
-      <a><%= link_to "Back",books_path,class: "link_Back" %></a>
+      <%= link_to "Back", books_path,class: "link_Back" %>
 </body>
 </html>

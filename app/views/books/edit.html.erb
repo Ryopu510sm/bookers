@@ -22,8 +22,8 @@
             <% end %>
           </ul>
         <% end %>
-    
-    
+   </div> 
+ </div>   
     
     <%= form_with model: @books do |f| %>
     
@@ -35,13 +35,13 @@
       
       <%= f.submit 'Update Book' %>
       
-    <% end %>
+   
 
         
-        <a><%= link_to "Show" ,book_path(@books.id),class: "link-Show" %></a>
+        <%= link_to "Show" ,book_path(@books.id),class: "link-Show" %>
         ｜
-        <a><%= link_to "Back",books_path,class: "link_Back" %></a>
-    
+        <%= link_to "Back",books_path,class: "link_Back" %>
+     <% end %>
     
 </body>
 </html>
