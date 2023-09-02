@@ -37,9 +37,10 @@
       
     <% end %>
 
-        <a href="<%= book_path(@books) %>">Show</a>
+        
+        <a><%= link_to "Show" ,book_path(@books.id),class: "link-Show" %></a>
         ｜
-        <a href="/books">Back</a>
+        <a><%= link_to "Back",books_path,class: "link_Back" %></a>
     
     
 </body>
