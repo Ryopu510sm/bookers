@@ -2,10 +2,10 @@ class BooksController < ApplicationController
  
     
     def create #ボタンを押したあとの動き
-        @book = Book.new(book_params)
-        if @book.save
+        @newbook = Book.new(book_params)
+        if @newbook.save
             flash[:notice] = "Book was successfully created."
-            redirect_to book_path(@book.id)
+            redirect_to book_path(@newbook.id)
         else
             flash[:notice] = "Failed to post."
             @books = Book.all
@@ -15,23 +15,23 @@ class BooksController < ApplicationController
     
     def index
         @books = Book.all
-        @book = Book.new #空のインスタ
+        @newbook = Book.new #空のインスタ
     end 
     
     def show
-        @books =Book.find(params[:id])
+        @book =Book.find(params[:id])
     end 
     
     
     def edit
-        @books = Book.find(params[:id])
+        @book = Book.find(params[:id])
     end 
     
     def update
-        @books = Book.find(params[:id])
-        if @books.update(book_params)
+        @book = Book.find(params[:id])
+        if @book.update(book_params)
             flash[:notice] = "Book was successfully updated."
-            redirect_to book_path(@books.id)
+            redirect_to book_path(@book.id)
         else
             flash[:notice] = "Failed to post."
             render :edit

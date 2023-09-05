@@ -1,13 +1,4 @@
-<!DOCTYPE html>
-<html lang="ja">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="stylesheet" href="books.scss" />
-    <title>Bookers</title>
-  </head>
-
-  <body>
-    <h1>Books</h1>
+<h1>Books</h1>
     
       <table>
         <tr>
@@ -32,10 +23,10 @@
       </div>
       <h1>New book</h1>
       
-        <% if @book.errors.any? %><!--エラーが発生しているかどうかを判定-->
-          <a><%= @book.errors.count %>errors prohibited this book from being saved:</a>
+        <% if @newbook.errors.any? %><!--エラーが発生しているかどうかを判定-->
+          <a><%= @newbook.errors.count %>errors prohibited this book from being saved:</a>
           <ul>
-            <% @book.errors.full_messages.each do |message| %>
+            <% @newbook.errors.full_messages.each do |message| %>
               <li><%= message %></li>
             <% end %>
           </ul>
@@ -43,7 +34,7 @@
       
       
       
-<%= form_with model: @book, url: books_path, method: :post do |f| %>
+<%= form_with model: @newbook, url: books_path, method: :post do |f| %>
 <div class="flex-box">
   <div class="explain new-box">
     <h4>Title</h4> 
@@ -57,7 +48,3 @@
     </div>
 <% end %>
       
-      
-      
-  </body>
-</html>
